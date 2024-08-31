@@ -7,9 +7,11 @@ on:
 jobs:
   assign-peer-reviewers:
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
     if: github.event.action == 'labeled' && github.event.label.name == 'READY FOR PEER REVIEW'
     steps:
-      - uses: actions/github-helpers@v1
+      - uses: ExpediaGroup/github-helpers@v1.62.5
         with:
           helper: assign-pr-reviewers
           teams: test-peer-reviewers
