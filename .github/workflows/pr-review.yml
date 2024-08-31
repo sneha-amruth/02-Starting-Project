@@ -14,7 +14,6 @@ jobs:
       - uses: ExpediaGroup/github-helpers@v1.62.5
         with:
           helper: assign-pr-reviewers
-          teams: test-peer-reviewers
-          number_of_assignees: 1
+          reviewers: sneha.amruth24@gmail.com
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
