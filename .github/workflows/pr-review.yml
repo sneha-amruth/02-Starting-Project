@@ -14,4 +14,4 @@ jobs:
           helper: assign-pr-reviewers
           teams: test-peer-reviewers
           number_of_assignees: 1
-          github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
