@@ -2,13 +2,12 @@ name: PR Approval workflow
 on:
   pull_request:
     types: [labeled]
-  pull_review_review:
+  pull_request_review:
     types: [submitted]
 jobs:
   assign-peer-reviewers:
     runs-on: ubuntu-latest
     if: github.event.action = 'labeled' && github.event.label.name = 'READY FOR PEER REVIEW'
-    name: Assign peer approvers
     steps:
       - uses: actions/github-helpers@v1
         with:
