@@ -7,7 +7,7 @@ on:
 jobs:
   assign-peer-reviewers:
     runs-on: ubuntu-latest
-    if: github.event.action = 'labeled' && github.event.label.name = 'READY FOR PEER REVIEW'
+    if: github.event.action == 'labeled' && github.event.label.name == 'READY FOR PEER REVIEW'
     steps:
       - uses: actions/github-helpers@v1
         with:
