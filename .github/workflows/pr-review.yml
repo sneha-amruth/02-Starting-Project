@@ -1,10 +1,7 @@
 name: PR Approval
-
 on:
   pull_request:
-    types: [labeled]
-  pull_review_review:
-    types: [submitted]
+  types: [labeled]
 jobs:
   assign-peer-reviewers:
     runs-on: ubuntu-latest
