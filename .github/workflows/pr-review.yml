@@ -1,18 +1,20 @@
-name: PR Approval
-
+name: PR Approval workflow
 on:
   pull_request:
     types: [labeled]
-  pull_review_review:
+  pull_request_review:
     types: [submitted]
 jobs:
   assign-peer-reviewers:
     runs-on: ubuntu-latest
-    if: github.event.action = 'labeled' && github.event.label.name = 'READY FOR PEER REVIEW'
-    name: Assign peer approvers
+    permissions:
+      issues: write
+    if: github.event.action == 'labeled' && github.event.label.name == 'READY FOR PEER REVIEW'
     steps:
-      - uses: actions/github-helpers@v1
+      - uses: ExpediaGroup/github-helpers@v1.62.5
         with:
           helper: assign-pr-reviewers
           teams: test-peer-reviewers
           number_of_assignees: 1
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}

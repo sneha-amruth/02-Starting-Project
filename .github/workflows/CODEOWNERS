@@ -1,0 +1,21 @@
+# This is a CODEOWNERS file for GitHub Actions
+
+# Each line is a file pattern followed by one or more owners.
+
+# These owners will be the default owners for everything in
+
+# the repo. Unless a later match takes precedence,
+
+# @test-peer-reviewers team will be requested for
+
+# review when someone opens a pull request.
+
+-       @test-peer-reviewers
+
+# Matches all files and subdirectories in the .github directory
+
+/.github/ @test-peer-reviewers
+
+# Specifically match workflow files
+
+/.github/workflows/\*.yml @test-peer-reviewers
